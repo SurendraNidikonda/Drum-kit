@@ -1,82 +1,140 @@
-var numberOfDrumButtons = document.querySelectorAll(".drum").length;
+const w = document.getElementById("w");
+const a = document.getElementById("a");
+const s = document.getElementById("s");
+const d = document.getElementById("d");
+const j = document.getElementById("j");
+const k = document.getElementById("k");
+const l = document.getElementById("l");
+const drumkit = document.getElementById("drumkit");
+const crashUrl = "https://res.cloudinary.com/daeetgsof/video/upload/v1670748247/crash_ijetsk.mp3";
+const bassUrl = "https://res.cloudinary.com/daeetgsof/video/upload/v1670823250/kick-bass_ducbbd.mp3";
+const snareUrl = "https://res.cloudinary.com/daeetgsof/video/upload/v1670823252/snare_hv97le.mp3";
+const tom1Url = "https://res.cloudinary.com/daeetgsof/video/upload/v1670823251/tom-1_aaxsfk.mp3";
+const tom2Url = "https://res.cloudinary.com/daeetgsof/video/upload/v1670823252/tom-2_bp107g.mp3";
+const tom3Url = "https://res.cloudinary.com/daeetgsof/video/upload/v1670823252/tom-3_r6ezr4.mp3";
+const tom4Url = "https://res.cloudinary.com/daeetgsof/video/upload/v1670823252/tom-4_epc1yk.mp3";
 
-for (var i = 0; i < numberOfDrumButtons; i++) {
-
-    document.querySelectorAll(".drum")[i].addEventListener("click", function() {
-
-        var buttonInnerHTML = this.innerHTML;
-
-        makeSound(buttonInnerHTML);
-
-        buttonAnimation(buttonInnerHTML);
-
-    });
-
-}
-
-document.addEventListener("keypress", function(event) {
-
-    makeSound(event.key);
-
-    buttonAnimation(event.key);
-
+w.addEventListener("click", function() {
+    var crash = new Audio(crashUrl);
+    crash.play();
+    w.classList.add("pressed");
+    setTimeout(function() {
+        w.classList.remove("pressed");
+    }, 100);
+});
+a.addEventListener("click", function() {
+    var kick = new Audio(bassUrl);
+    kick.play();
+    a.classList.add("pressed");
+    setTimeout(function() {
+        a.classList.remove("pressed");
+    }, 100);
+});
+s.addEventListener("click", function() {
+    var snare = new Audio(snareUrl);
+    snare.play();
+    s.classList.add("pressed");
+    setTimeout(function() {
+        s.classList.remove("pressed");
+    }, 100);
+});
+d.addEventListener("click", function() {
+    var tom1 = new Audio(tom1Url);
+    tom1.play();
+    d.classList.add("pressed");
+    setTimeout(function() {
+        d.classList.remove("pressed");
+    }, 100);
+});
+j.addEventListener("click", function() {
+    var tom2 = new Audio(tom2Url);
+    tom2.play();
+    j.classList.add("pressed");
+    setTimeout(function() {
+        j.classList.remove("pressed");
+    }, 100);
+});
+k.addEventListener("click", function() {
+    var tom3 = new Audio(tom3Url);
+    tom3.play();
+    k.classList.add("pressed");
+    setTimeout(function() {
+        k.classList.remove("pressed");
+    }, 100);
+});
+l.addEventListener("click", function() {
+    var tom4 = new Audio(tom4Url);
+    tom4.play();
+    l.classList.add("pressed");
+    setTimeout(function() {
+        l.classList.remove("pressed");
+    }, 100);
 });
 
-
-function makeSound(key) {
-
-    switch (key) {
-        case "w":
-            var tom1 = new Audio("https://res.cloudinary.com/daeetgsof/video/upload/v1670748247/crash_ijetsk.mp3");
-            tom1.play();
-            break;
-
-        case "a":
-            var tom2 = new Audio("https://res.cloudinary.com/daeetgsof/video/upload/v1670823250/kick-bass_ducbbd.mp3");
-            tom2.play();
-            break;
-
-        case "s":
-            var tom3 = new Audio('https://res.cloudinary.com/daeetgsof/video/upload/v1670823252/snare_hv97le.mp3');
-            tom3.play();
-            break;
-
-        case "d":
-            var tom4 = new Audio('https://res.cloudinary.com/daeetgsof/video/upload/v1670823251/tom-1_aaxsfk.mp3');
-            tom4.play();
-            break;
-
-        case "j":
-            var snare = new Audio('https://res.cloudinary.com/daeetgsof/video/upload/v1670823252/tom-2_bp107g.mp3');
-            snare.play();
-            break;
-
-        case "k":
-            var crash = new Audio('https://res.cloudinary.com/daeetgsof/video/upload/v1670823252/tom-3_r6ezr4.mp3');
+document.addEventListener("keypress", function(event) {
+    switch (event.key) {
+        case 'w':
+            var crash = new Audio(crashUrl);
             crash.play();
+            w.classList.add("pressed");
+            setTimeout(function() {
+                w.classList.remove("pressed");
+            }, 100);
+            break;
+        case 'a':
+            var kick = new Audio(bassUrl);
+            kick.play();
+            a.classList.add("pressed");
+            setTimeout(function() {
+                a.classList.remove("pressed");
+            }, 100);
+            break;
+        case 's':
+            var snare = new Audio(snareUrl);
+            snare.play();
+            s.classList.add("pressed");
+            setTimeout(function() {
+                s.classList.remove("pressed");
+            }, 100);
             break;
 
-        case "l":
-            var kick = new Audio('https://res.cloudinary.com/daeetgsof/video/upload/v1670823252/tom-4_epc1yk.mp3');
-            kick.play();
+        case 'd':
+            var tom1 = new Audio(tom1Url);
+            tom1.play();
+            d.classList.add("pressed");
+            setTimeout(function() {
+                d.classList.remove("pressed");
+            }, 100);
+            break;
+
+        case 'j':
+            var tom2 = new Audio(tom2Url);
+            tom2.play();
+            j.classList.add("pressed");
+            setTimeout(function() {
+                j.classList.remove("pressed");
+            }, 100);
+            break;
+
+        case 'k':
+            var tom3 = new Audio(tom3Url);
+            tom3.play();
+            k.classList.add("pressed");
+            setTimeout(function() {
+                k.classList.remove("pressed");
+            }, 100);
+            break;
+        case 'l':
+            var tom4 = new Audio(tom4Url);
+            tom4.play();
+            l.classList.add("pressed");
+            setTimeout(function() {
+                l.classList.remove("pressed");
+            }, 100);
             break;
 
 
         default:
-            console.log(key);
-
+            console.log(event.key)
     }
-}
-
-
-function buttonAnimation(currentKey) {
-
-    var activeButton = document.querySelector("." + currentKey);
-
-    activeButton.classList.add("pressed");
-
-    setTimeout(function() {
-        activeButton.classList.remove("pressed");
-    }, 100);
-
-}
+});
